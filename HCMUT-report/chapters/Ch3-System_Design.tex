@@ -1,0 +1,88 @@
+%! Compiler = lualatex --shell-escape
+%! BibTeX Compiler = biber
+
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../figures/}}}
+
+\begin{document}
+
+	\justifying
+
+
+	\chapter{Thiết kế hệ thống}
+	\label{chap:system_design}
+
+
+	\section{Thiết kế kiến trúc hệ thống}
+
+	Có nhiều mẫu kiến trúc được sử dụng cho các hệ thống thông tin như MVC, layered, client-server... Mẫu kiến trúc mà
+	nhóm sử dụng là \emph{3-tier architecture} hay kiến trúc 3 tầng. Kiến trúc này cũng tương thích với kiến trúc phân lớp
+	(layered) và kiến trúc máy chủ - máy khách (client - server). Hình \ref{fig:arch_diagram} biểu diễn kiến trúc cho hệ 
+	thống.
+
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[scale=0.3]{images/system_design/arch_diagram.png}
+		\caption{Thiết kế kiến trúc hệ thống}
+		\label{fig:arch_diagram}
+	\end{figure}
+
+	Kiến trúc hệ thống bao gổm 3 tầng (tier) và giống với kiến trúc phân lớp, trong đó mỗi thành phần đảm nhận một nhiệm
+	vụ riêng biệt và chỉ có thể giao tiếp với thành phần ở tầng kế cận. Vai trò của các tầng được thiết kế như sau:
+
+	Tầng Presentation hay tầng biểu diễn là tầng đảm nhận vai trò hiển thị các giao diện người dùng để người dùng có thể
+	nhìn thấy và tương tác được với hệ thống. Các thành phần giao diện lớn trong tầng này có thể chia ra là thành phần
+	giao diện dành cho người dùng và thành phần dành giao diện dành cho officer. Khi triển khai, hai thành phần này có thể
+	được triển khai trên hai domain khác nhau (ví dụ một domain và một subdomain), hoặc trên cùng một domain nhưng nằm ở
+	khác đường dẫn.
+
+	Tầng Application hay tầng ứng dụng là tầng đảm nhận các thông tin thu được từ tầng Presentation, sau đó là xử lý các
+	logic sao cho đúng với business của hệ thống và tương tác với tầng Data để đảm bảo đọc và ghi đúng dữ liệu thực tế.
+	Thành phần duy nhất trong tầng này là một dịch vụ API mà bản thân nó cũng được kiến trúc dạng phân lớp:
+
+	\begin{itemize}
+		\item Lớp Authentication and Authorization hay Xác thực và Phân quyền: đây là lớp đóng vai trò xác thực người dùng
+		để xác định các thao tác hay đường dẫn mà người dùng đó được phép truy cập
+		\item Lớp Controllers: đây là lớp đóng vai trò tiếp nhận các thao tác từ người dùng tới các URI tương ứng. Từ các
+		URI và các yêu cầu thao tác \Gls{crud} của người dùng, nó sẽ gọi các phương thức phù hợp từ lớp Service và trả về
+		các kết quả xử lý dữ liệu hoặc có thể là các lỗi xảy ra trong quá trình
+		\item Lớp Services: đây là lớp chứa các logic chính của dịch vụ API. Dữ liệu từ Controllers gửi tới đây sẽ được xử
+		lý và gọi xuống lớp Repositories để truy vấn các thông tin cần thiết. Kết quả này sau cùng sẽ trả về cho
+		Controllers.
+		\item Lớp Repositories: đây là lớp ánh xạ tới các bảng và các trường trong cơ sở dữ liệu tại tầng Data. Các thành
+		phần trong lớp này cũng có các phương thức để truy vấn hay cập nhật dữ liệu từ các bảng tương ứng trong cơ sở dữ
+		liệu.
+	\end{itemize}
+
+	Tầng Data hay tầng dữ liệu là nơi chứa cơ sở dữ liệu để cho tầng Application có thể truy xuất các dữ liệu đó. Trong 
+	thiết kế thiến trúc hiện tại của nhóm, hệ thống sẽ sử dụng một cơ sở dữ liệu tập trung vì lượng dữ liệu ban đầu sẽ 
+	chưa đủ lớn để dùng tới các chiến lược phân tán cơ sở dữ liệu.
+
+	Khi kết hợp với các công nghệ sẽ được trình bày tại chương \ref{chap:implementation}, nhóm đã vẽ ra thiết kế kiến trúc
+	của hệ thống khi được triển khai tại hình \ref{fig:deploy_diagram}:
+
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[scale=0.3]{images/system_design/deploy_diagram.png}
+		\caption{Thiết kế triển khai hệ thống}
+		\label{fig:deploy_diagram}
+	\end{figure}
+
+	Có thể thấy mỗi thành phần trong thiết kế trên tương ứng với mỗi tầng trong kiến trúc đã đề ra.
+
+
+% \section{Mô hình hoá hệ thống}
+
+% \subsection{Class diagram}
+
+% \subsection{Sequence diagram}
+
+% \subsection{Activity diagram}
+
+% \subsection{EERD}
+
+% \section{Thiết kế giao diện ứng dụng}
+
+	\newpage
+
+\end{document}

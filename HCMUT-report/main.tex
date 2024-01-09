@@ -1,0 +1,245 @@
+%! Compiler = lualatex --shell-escape
+%! BibTeX Compiler = biber
+
+\documentclass[12pt,a4paper]{report}
+
+% Metadata
+\title{Title name}
+\author{Author name}
+
+\makeatletter
+\let\mytitle\@title
+\makeatother
+
+
+% Font setup for Times New Roman
+\usepackage{fontspec}
+%\setmainfont{Times New Roman}
+
+
+% Graphics and figures setup
+\usepackage{graphicx}
+\graphicspath{ {images} }
+\usepackage{array}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+
+% Page setup
+\usepackage[
+	top=20mm,
+	bottom=20mm,
+	left=30mm,
+	right=20mm,
+	includehead,
+% includefoot,
+	headheight=16pt
+]{geometry}
+
+
+% Title formatting
+\usepackage{titlesec}
+
+\titleformat
+{\chapter} % command
+[hang] % shape
+{\bfseries\Large} % format
+{\centering \chaptername \ \thechapter:} % label
+{0.25ex} % sep
+{
+% \rule{\textwidth}{1pt}
+% \vspace{1ex}
+	\centering
+	\LARGE
+	\MakeUppercase
+} % before-code
+[
+% \vspace{-1.5ex}%
+% \rule{\textwidth}{0.3pt}
+] % after-code
+
+
+% Bibliography
+\usepackage[
+	backend=biber,
+	style=verbose,
+	sorting=ynt
+]{biblatex}
+\addbibresource{references.bib}
+
+
+% Paragraph formatting
+\usepackage{indentfirst}
+\usepackage{setspace}
+\onehalfspacing
+\setlength{\parskip}{0.5\baselineskip}
+
+
+% Hyperlinks and urls
+\usepackage{hyperref}
+
+
+% Alignment
+\usepackage[document]{ragged2e}
+
+
+% Margin
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist
+
+
+% Tables
+\usepackage{caption}
+\captionsetup[table]{name=Bảng}
+\captionsetup[figure]{name=Hình}
+\usepackage{multirow}
+
+
+% Headers and Footers
+\usepackage{fancyhdr}
+
+
+% Glossaries
+\usepackage[
+% section=section,
+	acronym
+]{glossaries}
+
+\makeglossaries
+
+\newglossaryentry{glosarry}{
+	name=glossary-1,
+	description={Glosssary description}
+}
+
+
+% Rename some default titles
+\renewcommand{\abstractname}{Tóm tắt}
+\renewcommand{\contentsname}{Mục lục}
+\renewcommand{\listfigurename}{Danh mục hình ảnh}
+\renewcommand{\listtablename}{Danh mục bảng biểu}
+\renewcommand{\chaptername}{Chương}
+\renewcommand{\glossaryname}{Danh mục thuật ngữ}
+
+\setcounter{tocdepth}{2}
+
+
+% Dummy text
+\usepackage{lipsum}
+
+
+% Subfiles
+% Best loaded last in the preamble
+\usepackage{subfiles}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Initialization done. Now the document starts.
+
+\begin{document}
+
+	\begin{titlepage}
+
+		\begin{center}
+			\begin{tikzpicture}[remember picture, overlay]
+				\draw[line width = 2pt,color=black] ($(current page.north west) + (3.15cm,-2.15)$) rectangle ($(
+				current page.south east) + (-2.15cm,2.15cm)$);
+				\draw[line width = 1pt,color=black] ($(current page.north west) + (3.0cm,-2.0cm)$) rectangle ($(
+				current page.south east) + (-2.0cm,2.0cm)$);
+			\end{tikzpicture}
+
+			\large
+
+			\textbf{TRƯỜNG ĐẠI HỌC BÁCH KHOA}\\
+			\textbf{ĐẠI HỌC QUỐC GIA THÀNH PHỐ HỒ CHÍ MINH}\\
+			\textbf{KHOA KHOA HỌC VÀ KỸ THUẬT MÁY TÍNH}\\
+
+			\vspace{2cm}
+
+			\begin{figure}[ht]
+				\centering
+				\includegraphics[width=0.3\textwidth]{Logo_BK}
+			\end{figure}
+
+			\vspace{1cm}
+
+			\textbf{ĐỀ CƯƠNG LUẬN VĂN TỐT NGHIỆP ĐẠI HỌC}\\
+
+			\vspace{0.5cm}
+
+			\LARGE
+			\begin{changemargin}{1.5cm}{1.5cm}
+				\begin{center}
+					\textbf{\MakeUppercase \mytitle}\\
+				\end{center}
+			\end{changemargin}
+
+			\vspace{1cm}
+
+			\large
+
+			\begin{tabular}{ p{2.5cm} p{1cm} p{3.5cm} p{5cm} }
+				& \multicolumn{2}{l}{\textbf{Hội đồng:}} & Công nghệ phần mềm \\
+				& \multicolumn{2}{l}{\textbf{Giáo viên hướng dẫn:}} & Lecturer Name \\
+				& \multicolumn{2}{l}{\textbf{Giáo viên phản biện:}} & Lecturer 2 Name \\
+				& \multicolumn{2}{l}{\textbf{Sinh viên thực hiện:}} & \\
+				& & Student1   & Student-ID-1 \\
+				& & Student2 	 & Student-ID-2 \\
+			\end{tabular}
+
+			\vspace{1cm}
+
+			\footnotesize
+			Thành phố Hồ Chí Minh, tháng mm/yyyy.
+
+			\vspace{5mm}
+		\end{center}
+
+	\end{titlepage}
+
+	\newpage
+
+	\pagenumbering{roman}
+	\subfile{chapters/Declaration_of_Authorship}
+	\subfile{chapters/Acknowledgement}
+	\subfile{chapters/Abstract}
+
+	\tableofcontents
+	\newpage
+
+	\listoffigures
+	\newpage
+
+	\listoftables
+	\newpage
+
+	% Works only if you use glossary refs in the doc
+	\printglossary[type=main,style=long,nonumberlist]
+	\newpage
+
+
+% Start adding headers and footers
+	\pagenumbering{arabic}
+	\pagestyle{fancy}
+	\fancyhead{}
+	\fancyhead[L]{\textsl{\leftmark}}
+
+
+	\subfile{chapters/chapter-template.tex}
+
+
+% Bibliography
+	\printbibliography[
+		heading=bibintoc,
+		title={Danh mục tài liệu tham khảo}
+	]
+
+
+	% Use either of these two methods:
+	% Using `references.bib`
+	% Works only if using bib item refs in your document
+	\printbibliography
+	% Manually define references
+	% \chapter*{DANH MỤC TÀI LIỆU THAM KHẢO}\label{ch:refs}
+
+\end{document}

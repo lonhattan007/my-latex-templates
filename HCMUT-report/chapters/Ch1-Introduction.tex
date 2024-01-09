@@ -1,0 +1,291 @@
+%! Compiler = lualatex --shell-escape
+%! BibTeX Compiler = biber
+
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../figures/}}}
+
+\begin{document}
+
+	\justifying
+
+
+	\chapter{Giới thiệu đề tài}
+	\label{chap:intro}
+
+
+	\section{Bối cảnh}
+
+	Hiện nay, du lịch Đà Lạt ngaày càng phát triển; tuy nhiên khách du lịch thường gặp khó khăn trong việc thuê xe máy
+	để tự di chuyển. Hầu hết các địa điểm cho thuê xe đều được xây dựng theo hình thức kinh doanh nhỏ lẻ, không có sự
+	đảm bảo về chất lượng của xe cũng như giá thành. Hơn nữa, trong các mùa cao điểm du lịch thì việc tìm kiếm xe càng
+	trở nên khó khăn. Về phía người cho thuê xe, một số chủ xe muốn cho thuê xe nhưng lại không có đủ năng lực để vận
+	hành một đại lý hoặc khó quản lý hoạt động thuê xe. Vì vậy, việc xây dựng một ứng dụng giúp khách du lịch dễ dàng
+	đặt xe cũng như kiểm tra chất lượng xe với giá cả minh bạch hợp lý cũng như hỗ trợ các chủ xe lẻ hoặc các đơn vị
+	cho thuê xe gặp được tệp khách hàng và quản lý việc thuê xe là điều cần thiết nhằm phất triển du lịch Đà Lạt; sau
+	đó có thể mở rộng quy mô ra các địa điểm khác trong và ngoài nước.
+
+
+	\section{Tìm hiểu các ứng dụng, giải pháp có trên thị trường}
+
+	Để có thể hình dung được rõ hơn về hệ thống sẽ xây dụng, nhóm tác giả đã tham khảo một số hệ thống tương tự trong
+	lĩnh vực thuê xe đã có trên thị trường để phân tích được những ưu điểm và hạn chế của các ứng dụng đó. Trên thị
+	trường hiện nay, có nhiều hệ thống hỗ trợ người dùng thuê xe. Đó có thể là hệ thống đặt thuê xe online của một đại
+	lý chuyên cho thuê xe, cũng có thể là một phần tính năng của một hệ thống lớn hơn chuyên hỗ trợ khách du lịch,
+	hoặc cũng có thể là một hệ thống trung gian giống với sản phẩm mà đề tài hướng tới hiện thực.
+
+	Với nhóm ứng dụng thứ nhất, đây là các hệ thống mà các đại lý thuê xe lớn dùng để tiếp cận tới nhiều khách hàng
+	hơn cũng như quản lý được việc cho thuê xe dễ dàng hơn. Các hệ thống này thường sẽ có giao diện web để khách thuê
+	xe có thể truy cập và lựa chọn thuê xe theo kế hoạch cá nhân, đồng thời cung cấp một kênh liên lạc (như Messenger,
+	Zalo \ldots) để nhân viên đại lý có thể hỗ trợ khách hàng. Đa phần các hệ thống này không có ứng dụng riêng cho các
+	thiết bị điện thoại thông minh và có flow sử dụng đơn giản. Các hệ thống này đáp ứng được nhu cầu thuê xe tự lái cơ
+	bản, nhưng không thể đáp ứng nhu cầu các chủ xe lẻ có nhu cầu cho thuê, hoặc một số trải nghiệm nâng cao hơn mà có
+	thể khách thuê xe cần.
+
+	Tiếp theo là nhóm ứng dụng thứ hai - các ứng dụng du lịch lớn mà khách hàng có thể đặt một số dịch vụ du lịch khác,
+	bao gồm thuê xe tự lái. Một số ứng dụng lớn có thể kể tên tới như \emph{
+		TripAdvisor, Viator, Traveloka, Booking .com, Trip.com \ldots} Vì đây là các nền tảng lớn nên giao diện và lu
+	ồng sử dụng của chúng được thiết kế tốt, trên cả nền tảng web và mobile. Tuy nhiên khảo sát cho thấy không có
+	nhiều dịch vụ cho thuê xe máy trên các ứng dụng này. Các chủ xe không bị hạn chế trong việc chủ động cho đăng ký
+	thuê xe.
+
+	Cuối cùng là nhóm ứng dụng sàn thuê xe trung gian. Chúng đóng vai trò như một nền tảng thương mại điện tử, kết nối
+	khách hàng có nhu cầu thuê xe ô tô tự lái hoặc xe có tài xế với các chủ xe cho thuê. Tại đó, các chủ xe có thể
+	đăng tải thông tin về các xe mình cho thuê và khách thuê xe có thể lựa chọn các xe dựa trên loại xe, mẫu mã, hãng
+	xe, thời gian thuê xe và có thể thanh toán cho chủ xe thông qua nhiều hình thức thanh toán khách nhau. Đây cũng là
+	nhóm ứng dụng mà nhóm tác giả chọn để tham khảo, phân tích kỹ vì chúng rất sát so với định hướng của đề tài. Thách
+	thức lớn nhất khi nghiên cứu nhóm ứng dụng này là các ứng dụng tại Việt Nam hầu như chỉ cho thuê ô tô, không có xe
+	máy; còn các ứng dụng khác trên thế giới thì chưa có mặt hoạt động tại Việt Nam. Nhóm tác giải đã chọn ra 3 ứng
+	dụng để phân tích gồm \emph{Mioto}, \emph{Xego} và \emph{Sigo}. Nhìn chung, các hệ thống này có phương thức nghiệp
+	vụ tương tự nhau.
+
+	\subsection{Ứng dụng thuê xe Mioto}
+
+	Mioto là ứng dụng được phát triển bởi Công ty Cổ Phần Mioto Asia và cũng là sản phẩm chính của công ty này. Mioto
+	Asia là công ty hoạt động trong lĩnh vực cho thuê xe tự lái 4 -7 chỗ, theo mô hình kinh tế chia sẻ
+	\footnote{
+%		Công ty Mioto Asia. (2022). \emph{Về Mioto.} Truy cập ngày 05/06/2023 tại \url{https://www.mioto.vn/aboutus}
+		\cite{aboutMioto}
+	}.
+	Theo định nghĩa của từ điển Cambridge, cụm từ \emph{"kinh tế chia sẻ"} có nghĩa là \emph{"một hệ thống kinh tế
+	dựa trên hoạt động chia sẻ tài sản và dịch vụ giữa con người với nhau, thường được tổ chức trên nền tảng internet
+	"}. Trong trường hợp này, tài sản được chia sẻ chính là các xe cho thuê.
+	Ứng dụng đã được đưa vào sử dụng từ năm 2018, cho tới nay đã hoạt động được khoảng 5 năm và có mặt ở nhiều thành
+	phố lớn tại Việt Nam, đóng góp vào phát triển du lịch trong nước. Hệ thống đã được đánh giá cao trên cả App Store
+	và Google Play Store, với 4.9 sao tổng hợp từ hơn 6000 lượt đánh giá trên mỗi nền tảng. Hiện tại, Mioto đang
+	hoạt động rất tích cực, đẩy mạnh quảng cáo trên các mạng xã hội và kết hợp với nhiều dịch vụ lớn như
+	Traveloka \footnote{
+		Một nền tảng cung cấp các dịch vụ du lịch lớn tại khu vực Đông Nam Á, phát triển bởi công ty Traveloka của
+		Indonesia.
+	}
+	hay Momo \footnote{
+		Nền tảng ví điện tử tích hợp nhiều dịch vụ tiện ích, phát triển bởi công ty M\_Service của Việt Nam.
+	}.
+
+	Ưu điểm:
+	\begin{itemize}
+		\item Hệ thống hỗ trợ đa nền tảng, có thể truy cập thông qua trang web lẫn mobile app trên Android và iOS.
+		\item Theo công cụ Wappalyzer, trang web của hệ thống được phát triển từ React.js, một bộ thư viện chuyên đề
+		phát triển các ứng dụng web. Kết hợp với việc hệ thống có giao diện riêng cho ứng dụng di động, có thể suy ra
+		được hệ thống sử dụng bộ tech-stack lớn, tách biệt giữa giao diện người dùng và logic hệ thống. Điều này cho
+		thấy hệ thống Mioto được đầu tư kỹ lưỡng và nổi trội hơn so với các hệ thống khác, vốn chỉ sử dụng Wordpress
+		để xây dựng trang chủ của hệ thống.
+		\item Hệ thống có giao diện được thiết kế tốt và dễ sử dụng, đặc biệt là phần ứng dụng trên nền web.
+		\item Hệ thống hiển thị chi tiết hơn thông tin về các xe cho thuê. Vì business của hệ thống tạo điều kiện dễ
+		dàng hơn cho các chủ xe tư nhân thay vì chỉ tập trung vào các đại lý cho thuê xe nên người dùng có thể xem
+		được kỹ hơn thông tin về từng chiếc xe.
+		\item Hệ thống hỗ trợ thanh toán với nhiều hình thức khác nhau: Momo, VNPay, AlePay, ZaloPay, Visa.
+		\item Ứng dụng được cập nhật liên tục để cải thiện chất lượng.
+	\end{itemize}
+
+	Hạn chế:
+	\begin{itemize}
+		\item Hạn chế đầu tiên của ứng dụng này so với phạm vi đề tài nghiên cứu là nó chỉ tập trung vào thị trường
+		xe ô tô và yêu cầu người dùng phải xác minh bằng lái ô tô để có thể sử dụng đủ các tính năng. Do đó, việc
+		trải nghiệm thử ứng dụng sẽ khó được đủ sâu.
+		\item Trang home của hệ thống trên cả trang web lẫn mobile app đều được hiện thực như một trang dashboard và
+		gắn rất nhiều thông tin, tuy nhiên trên nền web thì người dùng có thể tập trung ngay vào phần đặt xe vì đã có
+		sẵn các form cũng như có sẵn một số mẫu xe để chọn; còn trên nền mobile các nhà phát triển lựa chọn tách flow
+		đặt xe sang một trang riêng nên trang chủ chỉ đóng vai trò landing page cho cả app, người dùng sẽ cần làm
+		thêm một thao tác để đặt xe.
+		\item Hệ thống chỉ hỗ trợ tiếng Việt.
+	\end{itemize}
+
+	\subsection{Ứng dụng XeGo}
+
+	XeGo là ứng dụng thuê xe ô tô tự lái được sáng lập bởi Tập đoàn Công Nghệ NextTech - một trong những tập đoàn
+	công nghệ lớn nhất Việt Nam, hỗ trợ kết nối người cho thuê ô tô và khách hàng cần thuê ô tô. Từ đó giúp người
+	thuê nhanh chóng tìm được một chiếc xe ưng ý với mức giá tốt nhất, đáp ứng mong muốn giữa 2 bên. Hiện tại XeGo
+	đã có mặt hơn 22 tỉnh và thành phố trên cả nước. Hệ thống được đánh giá 3.1 sao với khoảng 70 lượt đánh giá trên
+	cả App Store và Google Play Store.
+
+	\subsubsection{\textbf{Phương thức hoạt động, nghiệp vụ của ứng dụng}}
+
+	Người dùng gồm 2 đối tượng chính:
+	\begin{itemize}
+		\item Người thuê xe - người có nhu cầu thuê xe tự lái cho mục đích cá nhân
+		\item Chủ xe - người có nhu cầu cho thuê xe, kiếm thêm thu nhập
+	\end{itemize}
+
+	Ứng dụng là nơi kết nối giữa chủ xe và người thuê xe.
+
+	Để sử dụng dịch vụ, cả chủ xe và người thuê xe phải tạo tài khoản trên ứng dụng. Quy trình nghiệp vụ của chủ xe
+	và người thuê xe như sau:
+
+	\begin{itemize}
+		\item Người thuê xe:
+		\begin{itemize}
+			\item Đăng ký tài khoản: Người thuê xe thực hiện đăng ký tài khoản, sau đó cung cấp các thông tin cá nh
+			ân cũng như hình ảnh các giấy tờ hợp pháp nhằm phục vụ cho việc xác định danh tính để có thể thực hiện
+			việc thuê xe sau này.
+			\item Tìm kiếm xe phù hợp với nhu cầu cần thuê: Lựa chọn địa điểm, thời gian, xe phù hợp rồi tiến hành
+			tạo yêu cầu thuê xe.
+			\item Thanh toán cọc: Sau khi đã gửi yêu cầu thuê xe, và được chủ xe xác nhận, người thuê sẽ tiến hành
+			vi ệc thanh toán cọc. Việc thanh toán cọc có hỗ trợ nhiều phương thức thanh toán online khác nhau.
+			\item Liên hệ chủ xe và tiến hành nhận xe: Sau khi đã đặt cọc, người thuê xe tiến hành liên hệ chủ xe để
+			sắp xếp thời gian nhận xe.
+		\end{itemize}
+
+		\item Chủ xe:
+		\begin{itemize}
+			\item Đăng ký tài khoản: Chủ xe tiến hành việc đăng ký tài khoản trên ứng dụng, sau đó cung cấp các
+			thông tin cá nhân cũng như hình ảnh các giấy tờ hợp pháp nhằm phục vụ cho việc xác định danh tính để có
+			thể thực hiện việc cho thuê xe.
+			\item Tiến hành đăng thông tin xe cho thuê: Sau khi ứng dụng đã xác nhận duyệt các thông tin của chủ xe,
+			chủ xe có thể tiến hành cho thuê xe bằng cách chọn tính năng cho thuê xe, sau đó điền và cung cấp các
+			thông tin hình ảnh yêu cầu.
+			\item Tiến hành cho thuê xe: Sau khi ứng dụng duyệt các thông tin xe do chủ xe cung cấp, cũng như thông
+			tin giá thuê xe, chủ xe đã có thể tiến hành cho thuê xe trên ứng dụng.
+		\end{itemize}
+	\end{itemize}
+
+	\subsubsection{Ưu điểm}
+
+	\begin{itemize}
+		\item Ứng dụng dễ dàng sử dụng và thân thiện với người dùng.
+		\item Có hỗ trợ đầy đủ các tính năng cho người thuê xe lẫn chủ xe.
+		\item Đa dạng các loại xe cho khách hàng lựa chọn.
+		\item Dễ dàng lọc và tìm xe phù hợp cho người thuê.
+		\item Có tính năng ví điện tử tích hợp trong ứng dụng, hỗ trợ thanh toán điện tử dễ dàng hơn.
+		\item Website thông tin về ứng dụng được hiện thực tốt, chứa đủ các thông tin có ích cho người dùng.
+		\item Trang chủ có tích hợp một số tiện ích như Tra cứu phạt nguội, Mua bảo hiểm xe\ldots
+		\item Trang chủ có tích hợp một số tiện ích như Tra cứu phạt nguội, Mua bảo hiểm xe \ldots
+	\end{itemize}
+
+	\subsubsection{Hạn chế}
+
+	\begin{itemize}
+		\item Chỉ hỗ trợ trên nền tảng mobile, chưa hỗ trợ cho nền tảng web.
+		\item Giống như ứng dụng Mioto, tại trang chủ của ứng dụng có một số thông tin quảng cáo cho ứng dụng không
+		cần thiết. Các thông tin này có thể để trong phần onboarding khi người dùng mở dứng dụng lần đầu tiện sau khi
+		tải về.
+		\item Một số nút bấm trên ứng dụng chưa được hiện thực tính năng hoặc hiện thực chưa đủ tốt (ví dụ nút ``Một
+		số câu hỏi thường gặp'' không dẫn thẳng tới phần tương ứng trên website mà dẫn về trang chủ), gây khó hiểu cho
+		người dùng.
+		\item Ứng dụng đã lâu không được cập nhật (lần cuối cập nhật trên cả nền tảng Android và iOS là trong năm
+		2022).
+		\item Hệ thống chỉ hỗ trợ tiếng Việt.
+	\end{itemize}
+
+	\subsection{Ứng dụng Sigo}
+
+	Sigo là ứng dụng cho thuê xe trung gian của Công ty TNHH SIGO Việt Nam được phát hành năm 2018. Ứng dụng là nơi
+	kết nối chủ xe và khách thuê xe với nhau trên toàn quốc. Sigo là nền tảng cho thuê xe ứng dụng công nghệ, khác
+	biệt hoàn toàn với cách thức thuê xe truyền thống. Với Sigo người dùng có thể tìm điểm cho thuê xe tự lái gần nhất
+	một cách đơn giản ngay trên điện thoại hoặc máy tính cá nhân.Các chủ xe thông qua các xe của mình có thể cho thuê
+	ngắn hạn kiếm tiền một cách dễ dàng. Còn khách hàng sẽ được trải nghiệm xe thoải mái và thuận tiện nhất. Hiện
+	tại SIGO đã có mặt hầu hết các thành phố lớn trên cả nước. Tại thời điểm viết báo cáo này, ứng dụng chỉ vừa được
+	release trên App Store và Google Play Store nên chưa có dữ liệu đánh giá.
+
+	\subsubsection{Ưu điểm}
+	\begin{itemize}
+		\item Ứng dụng dễ dàng sử dụng và thân thiện với người dùng.
+		\item Có hỗ trợ đầy đủ các tính năng cho người thuê xe lẫn chủ xe.
+		\item Đa dạng các loại xe cho khách hàng lựa chọn.
+		\item Dịch vụ thuê xe có hầu hết các thành phố lớn.
+		\item Dễ dàng lọc và tìm xe phù hợp cho người thuê.
+		\item Thông tin về giá thuê xe được minh bạch.
+		\item Thông tin về chủ xe cũng như khách thuê xe cũng được minh bạch.
+		\item Nền tảng web có giao diện tốt, đáp ứng được nhiều kích thước màn hình.
+	\end{itemize}
+
+	\subsubsection{Hạn chế}
+
+	\begin{itemize}
+		\item Ứng dụng trên nền tảng mobile đã lâu chưa cập nhật, nên không còn phù hợp với các phiên bản mới của hệ
+		điều hành Andriod và iOS. Phần cài đặt ứng dụng trên web cũng không dẫn được tới trang ứng dụng này trên Play
+		Store và App Store.
+		\item Nhiều nút bấm hoặc đường dẫn trên trang web không dẫn người dùng tới các trang thông tin cần thiết mà dẫn
+		về trang chủ, gây khó chịu cho người dùng khi muốn tìm kiếm các thông tin đó.
+		\item Hệ thống chỉ hỗ trợ tiếng Việt.
+		\item Phiên bản Android của ứng dụng chỉ vừa mới được release gần đây (24/9/2023) và chưa sử dụng được.
+	\end{itemize}
+
+
+% \begin{center}
+% \begin{table}[!ht]
+%     \centering
+%     \begin{tabular}{| c | c | c | c |}
+%         \hline
+%         STT & Ứng dụng & Nền  tảng & Ưu điểm \\
+%         \hline
+%         1 & Mioto & Web, Android, iOS & \\
+%         \hline
+%         2 & Xego & Android, iOS & \\
+%         \hline
+%         3 & Sigo & Web & \\
+%         \hline
+%     \end{tabular}
+%     \caption{So sánh giữa các ứng dụng thuê xe trung gian}
+%     \label{tab:my_label}
+% \end{table}
+% \end{center}
+
+% \newpage
+
+
+	\section{Tính cấp thiết của đề tài - Lý do chọn đề tài}
+
+	Thông qua việc tìm hiểu thực tiễn một số ứng dụng hiện có trên thị trường như trên, có thể thấy nhu cầu thuê xe tại
+	Việt Nam có tiềm năng, nhưng chưa thực sự phát triển. Các doanh nghiệp trong lĩnh vực này chọn hướng tới an toàn
+	hơn là thu6 xe ô tô mà vẫn còn bỏ ngỏ mảng xe máy. Do đó, việc phát triển một hệ thống thuê xe máy tự lái trung
+	gian là cần thiết. Bên cạnh đó, các ứng dụng được chọn ra để tham khảo vẫn còn nhuững điểm hạn chế cần khắc phục;
+	cũng như các tính năng, giao diện của chúng có phần tương đồng, học hỏi lẫn nhau khá nhiều.
+
+	Chi tiết về các tính năng của hệ thống sẽ được mô tả trong chương \ref{chap:requirements}.
+
+
+	\section{Phạm vi của đề tài}
+
+	Đề tài chỉ tập trung vào quá trình phát triển hệ thống cho thuê xe máy trung gian trong một thành phố, do đó các
+	vấn đề mà đề tài sẽ trình bày bao gồm việc tìm hiểu và phân tích các yêu cầu của hệ thống, thiết kế hệ thống, phát
+	triển và kiểm thử hệ thống. Các vấn đề khác như pháp lý, kinh doanh không nằm trong phạm vi của đề tài.
+
+	Để phù hợp với nguồn lực của nhóm, đề tài hiện tại hướng tới việc cho thuê xe máy trong một thành phố. Thành phố Đà
+	Lạt được chọn làm thành phố thí điểm để chuẩn bị một số dữ liệu cho đề tài vì đây là thành phố mang nhiều đặc điểm
+	phù hợp để có thể triển khai hệ thống. Đà Lạt vừa là thành phố du lịch nổi tiếng, vừa có địa hình đặc biệt với
+	nhiều dốc và đường hẻm, nên nhu cầu cho thuê xe máy tại đây cũng rất cao. Do đó, đây là địa điểm phù hợp để thí
+	điểm cho đề tài.
+
+
+	\section{Kết cấu đề tài}
+
+	Đề tài bao gồm 5 chương:
+
+	\begin{itemize}
+		\item \textbf{Chương \ref{chap:intro}: Giới thiệu đề tài} - giới thiệu về nhu cầu thực tế, các ứng dụng tương tự
+		trên thị trường, ý nghĩa thực tiễn và phạm vi của đề tài.
+		\item \textbf{Chương \ref{chap:requirements}: Phân tích yêu cầu} - Phân tích sâu hơn về các yêu cầu chức năng và phi
+		chức năng của hệ thống, mô hình hóa các yêu cầu chức năng bằng lược đồ use-case.
+		\item \textbf{Chương \ref{chap:system_design}: Thiết kế hệ thống} - Trình bày các khía cạnh khác nhau của hệ thống,
+		bao gồm kiến trúc, hành vi, tương tác giữa các thành phần, giao diện, dữ liệu.
+		\item \textbf{Chương \ref{chap:implementation}: Kế hoạch hiện thực} - Trình bày về các cơ sở lý thuyết để hiện thực
+		ứng dụng, chủ yếu sẽ là các công nghệ dự kiến được sử dụng.
+		\item \textbf{Chương \ref{chap:conclusion}: Tổng kết} - Tổng kết lại các vấn đề đã trình bày và đánh giá thành quả,
+		đồng thời nêu thêm một số hướng phát triển của hệ thống.
+		% \item \textbf{Chương 6: Danh mục tài liệu tham khảoj}.
+
+	\end{itemize}
+
+	\newpage
+
+\end{document}
