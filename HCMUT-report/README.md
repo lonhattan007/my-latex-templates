@@ -1,6 +1,6 @@
-# Thesis Proposal (Update)
+# HCMUT Assignment Report Template
 
-This is the README template for my Thesis Proposal report written in LaTex.
+This is the README for my school assignment report template.
 
 ## Project setup
 
@@ -8,7 +8,7 @@ This is the README template for my Thesis Proposal report written in LaTex.
 
 ## Conventions
 
-- All `Tex` files should starts with the 2 magic comments
+- All `Tex` files should start with the 2 magic comments
 
     ```tex
     %! Compiler = lualatex --shell-escape
